@@ -4,7 +4,7 @@
 #
 Name     : hamlib
 Version  : 3.1
-Release  : 1
+Release  : 2
 URL      : https://downloads.sourceforge.net/project/hamlib/hamlib/3.1/hamlib-3.1.tar.gz
 Source0  : https://downloads.sourceforge.net/project/hamlib/hamlib/3.1/hamlib-3.1.tar.gz
 Summary  : Library to control radio and rotator equipment.
