@@ -4,7 +4,7 @@
 #
 Name     : hamlib
 Version  : 3.1
-Release  : 2
+Release  : 3
 URL      : https://downloads.sourceforge.net/project/hamlib/hamlib/3.1/hamlib-3.1.tar.gz
 Source0  : https://downloads.sourceforge.net/project/hamlib/hamlib/3.1/hamlib-3.1.tar.gz
 Summary  : Library to control radio and rotator equipment.
@@ -12,8 +12,14 @@ Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
 Requires: hamlib-bin
 Requires: hamlib-lib
+Requires: hamlib-python3
 Requires: hamlib-doc
+Requires: hamlib-python
+BuildRequires : ncurses-dev
 BuildRequires : pkgconfig(libxml-2.0)
+BuildRequires : python3-dev
+BuildRequires : readline-dev
+BuildRequires : swig
 
 %description
 Hamlib - (C) Frank Singleton 2000 (vk3fcs@ix.netcom.com)
@@ -55,6 +61,24 @@ Group: Libraries
 lib components for the hamlib package.
 
 
+%package python
+Summary: python components for the hamlib package.
+Group: Default
+Requires: hamlib-python3
+
+%description python
+python components for the hamlib package.
+
+
+%package python3
+Summary: python3 components for the hamlib package.
+Group: Default
+Requires: python3-core
+
+%description python3
+python3 components for the hamlib package.
+
+
 %prep
 %setup -q -n hamlib-3.1
 
@@ -63,9 +87,9 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1507305576
-%configure --disable-static
-make V=1  %{?_smp_mflags}
+export SOURCE_DATE_EPOCH=1520554326
+%configure --disable-static --with-perl-binding --with-python-binding
+make  %{?_smp_mflags}
 
 %check
 export LANG=C
@@ -75,12 +99,15 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1507305576
+export SOURCE_DATE_EPOCH=1520554326
 rm -rf %{buildroot}
 %make_install
 
 %files
 %defattr(-,root,root,-)
+/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/Hamlib.pm
+/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/auto/Hamlib/.packlist
+/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/perltest.pl
 
 %files bin
 %defattr(-,root,root,-)
@@ -114,7 +141,15 @@ rm -rf %{buildroot}
 
 %files lib
 %defattr(-,root,root,-)
+/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/auto/Hamlib/Hamlib.so
 /usr/lib64/libhamlib++.so.2
 /usr/lib64/libhamlib++.so.2.1.1
 /usr/lib64/libhamlib.so.2
 /usr/lib64/libhamlib.so.2.1.1
+
+%files python
+%defattr(-,root,root,-)
+
+%files python3
+%defattr(-,root,root,-)
+/usr/lib/python3*/*
