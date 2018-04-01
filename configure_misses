@@ -16,7 +16,9 @@ Configure miss: Sleep
 Configure miss: floor
 Configure miss: rint
 Configure miss: sqrt
-Configure miss: libusb_init in -lusb-1.0
+Configure miss: libusb.h usability
+Configure miss: libusb.h presence
+Configure miss: libusb.h
 Configure miss: readline.h usability
 Configure miss: readline.h presence
 Configure miss: readline.h
@@ -28,5 +30,5 @@ Configure miss: gd.h presence
 Configure miss: gd.h
 Configure miss: whether to build rigmem XML support
 Configure miss: whether to build USRP backend
-Configure miss: Whether to build Tcl bindings and demos
-Configure miss: whether to build lua binding and demo
+Configure miss: Whether to build Tcl bindings
+Configure miss: whether to build lua binding

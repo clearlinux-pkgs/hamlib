@@ -1,5 +1,5 @@
 PKG_NAME := hamlib
-URL = https://downloads.sourceforge.net/project/hamlib/hamlib/3.1/hamlib-3.1.tar.gz
+URL = https://sourceforge.net/projects/hamlib/files/hamlib/3.2/hamlib-3.2.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
