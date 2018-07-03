@@ -6,7 +6,7 @@
 #
 Name     : hamlib
 Version  : 3.2
-Release  : 9
+Release  : 10
 URL      : https://sourceforge.net/projects/hamlib/files/hamlib/3.2/hamlib-3.2.tar.gz
 Source0  : https://sourceforge.net/projects/hamlib/files/hamlib/3.2/hamlib-3.2.tar.gz
 Source99 : https://sourceforge.net/projects/hamlib/files/hamlib/3.2/hamlib-3.2.tar.gz.asc
