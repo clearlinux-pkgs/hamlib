@@ -224,6 +224,7 @@ libhamlib.so.2:cm108_dcd_get
 libhamlib.so.2:cm108_open
 libhamlib.so.2:cm108_ptt_get
 libhamlib.so.2:cm108_ptt_set
+libhamlib.so.2:date_strget
 libhamlib.so.2:ddsToHz
 libhamlib.so.2:dec2dmmm
 libhamlib.so.2:dec2dms
@@ -565,7 +566,6 @@ libhamlib.so.2:initrigs3_dorji
 libhamlib.so.2:initrigs3_drake
 libhamlib.so.2:initrigs3_dummy
 libhamlib.so.2:initrigs3_flexradio
-libhamlib.so.2:initrigs3_flrig
 libhamlib.so.2:initrigs3_icm710
 libhamlib.so.2:initrigs3_icmarine
 libhamlib.so.2:initrigs3_icom
@@ -599,6 +599,7 @@ libhamlib.so.2:initrots3_gs232a
 libhamlib.so.2:initrots3_heathkit
 libhamlib.so.2:initrots3_kit
 libhamlib.so.2:initrots3_m2
+libhamlib.so.2:initrots3_meade
 libhamlib.so.2:initrots3_prosistel
 libhamlib.so.2:initrots3_rotorez
 libhamlib.so.2:initrots3_sartek
@@ -1030,6 +1031,7 @@ libhamlib.so.2:rig_set_dcs_sql
 libhamlib.so.2:rig_set_debug
 libhamlib.so.2:rig_set_debug_callback
 libhamlib.so.2:rig_set_debug_file
+libhamlib.so.2:rig_set_debug_time_stamp
 libhamlib.so.2:rig_set_ext_level
 libhamlib.so.2:rig_set_ext_parm
 libhamlib.so.2:rig_set_freq
@@ -1199,6 +1201,7 @@ libhamlib.so.2:th_set_split_vfo
 libhamlib.so.2:th_set_trn
 libhamlib.so.2:th_set_vfo
 libhamlib.so.2:th_vfo_op
+libhamlib.so.2:thd72_open
 libhamlib.so.2:tm_set_vfo_bc2
 libhamlib.so.2:tmd710_get_memory_name
 libhamlib.so.2:tmd710_get_rptr_shift_hamlib_value
@@ -1333,4 +1336,3 @@ libhamlib.so.2:xg3_set_parm
 libhamlib.so.2:xg3_set_powerstat
 libhamlib.so.2:xg3_set_ptt
 libhamlib.so.2:xg3_set_vfo
-libhamlib.so.2:xml_parse2

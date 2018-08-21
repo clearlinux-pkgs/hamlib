@@ -5,19 +5,21 @@
 # Source0 file verified with key 0xFB2C5130D55A8819 (n0nb@n0nb.us)
 #
 Name     : hamlib
-Version  : 3.2
-Release  : 11
-URL      : https://sourceforge.net/projects/hamlib/files/hamlib/3.2/hamlib-3.2.tar.gz
-Source0  : https://sourceforge.net/projects/hamlib/files/hamlib/3.2/hamlib-3.2.tar.gz
-Source99 : https://sourceforge.net/projects/hamlib/files/hamlib/3.2/hamlib-3.2.tar.gz.asc
+Version  : 3.3
+Release  : 12
+URL      : https://sourceforge.net/projects/hamlib/files/hamlib/3.3/hamlib-3.3.tar.gz
+Source0  : https://sourceforge.net/projects/hamlib/files/hamlib/3.3/hamlib-3.3.tar.gz
+Source99 : https://sourceforge.net/projects/hamlib/files/hamlib/3.3/hamlib-3.3.tar.gz.asc
 Summary  : Library to control radio and rotator equipment.
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
 Requires: hamlib-bin
 Requires: hamlib-lib
 Requires: hamlib-python3
-Requires: hamlib-doc
+Requires: hamlib-license
+Requires: hamlib-man
 Requires: hamlib-python
+BuildRequires : buildreq-cpan
 BuildRequires : libusb-dev
 BuildRequires : ncurses-dev
 BuildRequires : pkgconfig(libxml-2.0)
@@ -34,6 +36,8 @@ Hamlib - (C) Frank Singleton 2000 (vk3fcs@ix.netcom.com)
 %package bin
 Summary: bin components for the hamlib package.
 Group: Binaries
+Requires: hamlib-license
+Requires: hamlib-man
 
 %description bin
 bin components for the hamlib package.
@@ -53,6 +57,7 @@ dev components for the hamlib package.
 %package doc
 Summary: doc components for the hamlib package.
 Group: Documentation
+Requires: hamlib-man
 
 %description doc
 doc components for the hamlib package.
@@ -61,9 +66,26 @@ doc components for the hamlib package.
 %package lib
 Summary: lib components for the hamlib package.
 Group: Libraries
+Requires: hamlib-license
 
 %description lib
 lib components for the hamlib package.
+
+
+%package license
+Summary: license components for the hamlib package.
+Group: Default
+
+%description license
+license components for the hamlib package.
+
+
+%package man
+Summary: man components for the hamlib package.
+Group: Default
+
+%description man
+man components for the hamlib package.
 
 
 %package python
@@ -85,14 +107,14 @@ python3 components for the hamlib package.
 
 
 %prep
-%setup -q -n hamlib-3.2
+%setup -q -n hamlib-3.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1522596178
+export SOURCE_DATE_EPOCH=1534889790
 %configure --disable-static --with-perl-binding --with-python-binding
 make  %{?_smp_mflags}
 
@@ -104,8 +126,12 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1522596178
+export SOURCE_DATE_EPOCH=1534889790
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/doc/hamlib
+cp COPYING %{buildroot}/usr/share/doc/hamlib/COPYING
+cp COPYING.LIB %{buildroot}/usr/share/doc/hamlib/COPYING.LIB
+cp LICENSE %{buildroot}/usr/share/doc/hamlib/LICENSE
 %make_install
 
 %files
@@ -139,18 +165,36 @@ rm -rf %{buildroot}
 /usr/share/aclocal/*.m4
 
 %files doc
-%defattr(-,root,root,-)
+%defattr(0644,root,root,0755)
 %doc /usr/share/doc/hamlib/*
 %doc /usr/share/info/*
-%doc /usr/share/man/man1/*
 
 %files lib
 %defattr(-,root,root,-)
 /usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/auto/Hamlib/Hamlib.so
 /usr/lib64/libhamlib++.so.2
-/usr/lib64/libhamlib++.so.2.1.2
+/usr/lib64/libhamlib++.so.2.1.3
 /usr/lib64/libhamlib.so.2
-/usr/lib64/libhamlib.so.2.1.2
+/usr/lib64/libhamlib.so.2.1.3
+
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/hamlib/COPYING
+/usr/share/doc/hamlib/COPYING.LIB
+/usr/share/doc/hamlib/LICENSE
+
+%files man
+%defattr(-,root,root,-)
+/usr/share/man/man1/rigctl.1
+/usr/share/man/man1/rigctld.1
+/usr/share/man/man1/rigmem.1
+/usr/share/man/man1/rigsmtr.1
+/usr/share/man/man1/rigswr.1
+/usr/share/man/man1/rotctl.1
+/usr/share/man/man1/rotctld.1
+/usr/share/man/man7/hamlib-primer.7
+/usr/share/man/man7/hamlib-utilities.7
+/usr/share/man/man7/hamlib.7
 
 %files python
 %defattr(-,root,root,-)
