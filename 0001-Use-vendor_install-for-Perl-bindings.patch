@@ -1,0 +1,25 @@
+From 91dceae8d87caeaf78d13365f693911ad9ccebab Mon Sep 17 00:00:00 2001
+From: "Brett T. Warden" <brett.t.warden@intel.com>
+Date: Tue, 16 Oct 2018 09:29:03 -0700
+Subject: [PATCH] Use vendor_install for Perl bindings
+
+---
+ bindings/Makefile.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/bindings/Makefile.in b/bindings/Makefile.in
+index fb0fcbb..324a5fd 100644
+--- a/bindings/Makefile.in
++++ b/bindings/Makefile.in
+@@ -1074,7 +1074,7 @@ uninstall-am: uninstall-Hamliblua_laLTLIBRARIES \
+ @ENABLE_PERL_TRUE@	$(AM_V_at)$(MAKE) $(AM_MAKEFLAGS) -f Hamlib-pl.mk distcheck
+ 
+ @ENABLE_PERL_TRUE@install-perl: Hamlib-pl.mk
+-@ENABLE_PERL_TRUE@	$(AM_V_at)$(MAKE) $(AM_MAKEFLAGS) -f Hamlib-pl.mk install_site
++@ENABLE_PERL_TRUE@	$(AM_V_at)$(MAKE) $(AM_MAKEFLAGS) -f Hamlib-pl.mk install_vendor
+ 
+ @ENABLE_PERL_TRUE@uninstall-perl: ## Hamlib-pl.mk
+ 
+-- 
+2.19.1
+

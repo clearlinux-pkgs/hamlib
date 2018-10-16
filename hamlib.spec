@@ -6,19 +6,19 @@
 #
 Name     : hamlib
 Version  : 3.3
-Release  : 12
+Release  : 13
 URL      : https://sourceforge.net/projects/hamlib/files/hamlib/3.3/hamlib-3.3.tar.gz
 Source0  : https://sourceforge.net/projects/hamlib/files/hamlib/3.3/hamlib-3.3.tar.gz
 Source99 : https://sourceforge.net/projects/hamlib/files/hamlib/3.3/hamlib-3.3.tar.gz.asc
 Summary  : Library to control radio and rotator equipment.
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
-Requires: hamlib-bin
-Requires: hamlib-lib
-Requires: hamlib-python3
-Requires: hamlib-license
-Requires: hamlib-man
-Requires: hamlib-python
+Requires: hamlib-bin = %{version}-%{release}
+Requires: hamlib-lib = %{version}-%{release}
+Requires: hamlib-license = %{version}-%{release}
+Requires: hamlib-man = %{version}-%{release}
+Requires: hamlib-python = %{version}-%{release}
+Requires: hamlib-python3 = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : libusb-dev
 BuildRequires : ncurses-dev
@@ -27,6 +27,7 @@ BuildRequires : python3-dev
 BuildRequires : readline-dev
 BuildRequires : swig
 BuildRequires : usrbinpython
+Patch1: 0001-Use-vendor_install-for-Perl-bindings.patch
 
 %description
 Hamlib - (C) Frank Singleton 2000 (vk3fcs@ix.netcom.com)
@@ -36,8 +37,8 @@ Hamlib - (C) Frank Singleton 2000 (vk3fcs@ix.netcom.com)
 %package bin
 Summary: bin components for the hamlib package.
 Group: Binaries
-Requires: hamlib-license
-Requires: hamlib-man
+Requires: hamlib-license = %{version}-%{release}
+Requires: hamlib-man = %{version}-%{release}
 
 %description bin
 bin components for the hamlib package.
@@ -46,9 +47,9 @@ bin components for the hamlib package.
 %package dev
 Summary: dev components for the hamlib package.
 Group: Development
-Requires: hamlib-lib
-Requires: hamlib-bin
-Provides: hamlib-devel
+Requires: hamlib-lib = %{version}-%{release}
+Requires: hamlib-bin = %{version}-%{release}
+Provides: hamlib-devel = %{version}-%{release}
 
 %description dev
 dev components for the hamlib package.
@@ -57,7 +58,7 @@ dev components for the hamlib package.
 %package doc
 Summary: doc components for the hamlib package.
 Group: Documentation
-Requires: hamlib-man
+Requires: hamlib-man = %{version}-%{release}
 
 %description doc
 doc components for the hamlib package.
@@ -66,7 +67,7 @@ doc components for the hamlib package.
 %package lib
 Summary: lib components for the hamlib package.
 Group: Libraries
-Requires: hamlib-license
+Requires: hamlib-license = %{version}-%{release}
 
 %description lib
 lib components for the hamlib package.
@@ -91,7 +92,7 @@ man components for the hamlib package.
 %package python
 Summary: python components for the hamlib package.
 Group: Default
-Requires: hamlib-python3
+Requires: hamlib-python3 = %{version}-%{release}
 
 %description python
 python components for the hamlib package.
@@ -108,13 +109,14 @@ python3 components for the hamlib package.
 
 %prep
 %setup -q -n hamlib-3.3
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1534889790
+export SOURCE_DATE_EPOCH=1539707726
 %configure --disable-static --with-perl-binding --with-python-binding
 make  %{?_smp_mflags}
 
@@ -126,19 +128,19 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1534889790
+export SOURCE_DATE_EPOCH=1539707726
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/hamlib
-cp COPYING %{buildroot}/usr/share/doc/hamlib/COPYING
-cp COPYING.LIB %{buildroot}/usr/share/doc/hamlib/COPYING.LIB
-cp LICENSE %{buildroot}/usr/share/doc/hamlib/LICENSE
+mkdir -p %{buildroot}/usr/share/package-licenses/hamlib
+cp COPYING %{buildroot}/usr/share/package-licenses/hamlib/COPYING
+cp COPYING.LIB %{buildroot}/usr/share/package-licenses/hamlib/COPYING.LIB
+cp LICENSE %{buildroot}/usr/share/package-licenses/hamlib/LICENSE
 %make_install
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/Hamlib.pm
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/auto/Hamlib/.packlist
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/perltest.pl
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/Hamlib.pm
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/Hamlib/.packlist
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/perltest.pl
 
 %files bin
 %defattr(-,root,root,-)
@@ -171,20 +173,20 @@ cp LICENSE %{buildroot}/usr/share/doc/hamlib/LICENSE
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/auto/Hamlib/Hamlib.so
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/Hamlib/Hamlib.so
 /usr/lib64/libhamlib++.so.2
 /usr/lib64/libhamlib++.so.2.1.3
 /usr/lib64/libhamlib.so.2
 /usr/lib64/libhamlib.so.2.1.3
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/hamlib/COPYING
-/usr/share/doc/hamlib/COPYING.LIB
-/usr/share/doc/hamlib/LICENSE
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/hamlib/COPYING
+/usr/share/package-licenses/hamlib/COPYING.LIB
+/usr/share/package-licenses/hamlib/LICENSE
 
 %files man
-%defattr(-,root,root,-)
+%defattr(0644,root,root,0755)
 /usr/share/man/man1/rigctl.1
 /usr/share/man/man1/rigctld.1
 /usr/share/man/man1/rigmem.1
