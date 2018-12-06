@@ -138,9 +138,9 @@ cp LICENSE %{buildroot}/usr/share/package-licenses/hamlib/LICENSE
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/Hamlib.pm
-/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/auto/Hamlib/.packlist
-/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/perltest.pl
+/usr/lib/perl5/vendor_perl/5.28.1x86_64-linux-thread-multi/Hamlib.pm
+/usr/lib/perl5/vendor_perl/5.28.1x86_64-linux-thread-multi/auto/Hamlib/.packlist
+/usr/lib/perl5/vendor_perl/5.28.1x86_64-linux-thread-multi/perltest.pl
 
 %files bin
 %defattr(-,root,root,-)
@@ -173,7 +173,7 @@ cp LICENSE %{buildroot}/usr/share/package-licenses/hamlib/LICENSE
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/auto/Hamlib/Hamlib.so
+/usr/lib/perl5/vendor_perl/5.28.1x86_64-linux-thread-multi/auto/Hamlib/Hamlib.so
 /usr/lib64/libhamlib++.so.2
 /usr/lib64/libhamlib++.so.2.1.3
 /usr/lib64/libhamlib.so.2
