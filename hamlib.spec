@@ -6,7 +6,7 @@
 #
 Name     : hamlib
 Version  : 3.3
-Release  : 16
+Release  : 17
 URL      : https://sourceforge.net/projects/hamlib/files/hamlib/3.3/hamlib-3.3.tar.gz
 Source0  : https://sourceforge.net/projects/hamlib/files/hamlib/3.3/hamlib-3.3.tar.gz
 Source99 : https://sourceforge.net/projects/hamlib/files/hamlib/3.3/hamlib-3.3.tar.gz.asc
@@ -116,7 +116,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1539707726
+export SOURCE_DATE_EPOCH=1544388116
 %configure --disable-static --with-perl-binding --with-python-binding
 make  %{?_smp_mflags}
 
@@ -128,7 +128,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1539707726
+export SOURCE_DATE_EPOCH=1544388116
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/hamlib
 cp COPYING %{buildroot}/usr/share/package-licenses/hamlib/COPYING
@@ -138,9 +138,9 @@ cp LICENSE %{buildroot}/usr/share/package-licenses/hamlib/LICENSE
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.1x86_64-linux-thread-multi/Hamlib.pm
-/usr/lib/perl5/vendor_perl/5.28.1x86_64-linux-thread-multi/auto/Hamlib/.packlist
-/usr/lib/perl5/vendor_perl/5.28.1x86_64-linux-thread-multi/perltest.pl
+/usr/lib/perl5/vendor_perl/5.28.1/x86_64-linux-thread-multi/Hamlib.pm
+/usr/lib/perl5/vendor_perl/5.28.1/x86_64-linux-thread-multi/auto/Hamlib/.packlist
+/usr/lib/perl5/vendor_perl/5.28.1/x86_64-linux-thread-multi/perltest.pl
 
 %files bin
 %defattr(-,root,root,-)
@@ -173,7 +173,7 @@ cp LICENSE %{buildroot}/usr/share/package-licenses/hamlib/LICENSE
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.1x86_64-linux-thread-multi/auto/Hamlib/Hamlib.so
+/usr/lib/perl5/vendor_perl/5.28.1/x86_64-linux-thread-multi/auto/Hamlib/Hamlib.so
 /usr/lib64/libhamlib++.so.2
 /usr/lib64/libhamlib++.so.2.1.3
 /usr/lib64/libhamlib.so.2
