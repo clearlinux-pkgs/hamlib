@@ -6,11 +6,11 @@
 #
 Name     : hamlib
 Version  : 3.3
-Release  : 18
+Release  : 19
 URL      : https://sourceforge.net/projects/hamlib/files/hamlib/3.3/hamlib-3.3.tar.gz
 Source0  : https://sourceforge.net/projects/hamlib/files/hamlib/3.3/hamlib-3.3.tar.gz
 Source99 : https://sourceforge.net/projects/hamlib/files/hamlib/3.3/hamlib-3.3.tar.gz.asc
-Summary  : Library to control radio and rotator equipment.
+Summary  : Ham radio equipment control libraries
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
 Requires: hamlib-bin = %{version}-%{release}
@@ -30,15 +30,22 @@ BuildRequires : usrbinpython
 Patch1: 0001-Use-vendor_install-for-Perl-bindings.patch
 
 %description
-Hamlib - (C) Frank Singleton 2000 (vk3fcs@ix.netcom.com)
-(C) Stephane Fillod 2000-2011
-(C) The Hamlib Group 2000-2012
+hamlib-1.2.5 aor.c ar5000.c
+2006-10-29
+The previous AR5000 could:
+- get and set frequency.
+- read mode if radio were not set to SAH, SAL or SAM.
+- not set mode. Radio did not accept two commands to be sent at once.
+- not return VFO-name if rig were set to VFO D or VFO E.
+- not set VFO D or VFO E.
+- vfo_op Up and Down works, but radio returns a "?", resulting in "Protocol error".
+- get_info does not work.
+- not read AGC-level.
 
 %package bin
 Summary: bin components for the hamlib package.
 Group: Binaries
 Requires: hamlib-license = %{version}-%{release}
-Requires: hamlib-man = %{version}-%{release}
 
 %description bin
 bin components for the hamlib package.
@@ -50,6 +57,7 @@ Group: Development
 Requires: hamlib-lib = %{version}-%{release}
 Requires: hamlib-bin = %{version}-%{release}
 Provides: hamlib-devel = %{version}-%{release}
+Requires: hamlib = %{version}-%{release}
 
 %description dev
 dev components for the hamlib package.
@@ -116,7 +124,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1544388116
+export SOURCE_DATE_EPOCH=1555800455
 %configure --disable-static --with-perl-binding --with-python-binding
 make  %{?_smp_mflags}
 
@@ -128,7 +136,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1544388116
+export SOURCE_DATE_EPOCH=1555800455
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/hamlib
 cp COPYING %{buildroot}/usr/share/package-licenses/hamlib/COPYING
@@ -138,9 +146,9 @@ cp LICENSE %{buildroot}/usr/share/package-licenses/hamlib/LICENSE
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.1/x86_64-linux-thread-multi/Hamlib.pm
-/usr/lib/perl5/vendor_perl/5.28.1/x86_64-linux-thread-multi/auto/Hamlib/.packlist
-/usr/lib/perl5/vendor_perl/5.28.1/x86_64-linux-thread-multi/perltest.pl
+/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/Hamlib.pm
+/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/auto/Hamlib/.packlist
+/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/perltest.pl
 
 %files bin
 %defattr(-,root,root,-)
@@ -173,7 +181,7 @@ cp LICENSE %{buildroot}/usr/share/package-licenses/hamlib/LICENSE
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.1/x86_64-linux-thread-multi/auto/Hamlib/Hamlib.so
+/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/auto/Hamlib/Hamlib.so
 /usr/lib64/libhamlib++.so.2
 /usr/lib64/libhamlib++.so.2.1.3
 /usr/lib64/libhamlib.so.2
