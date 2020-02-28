@@ -6,11 +6,11 @@
 #
 Name     : hamlib
 Version  : 3.3
-Release  : 25
+Release  : 26
 URL      : https://sourceforge.net/projects/hamlib/files/hamlib/3.3/hamlib-3.3.tar.gz
 Source0  : https://sourceforge.net/projects/hamlib/files/hamlib/3.3/hamlib-3.3.tar.gz
 Source1  : https://sourceforge.net/projects/hamlib/files/hamlib/3.3/hamlib-3.3.tar.gz.asc
-Summary  : Library to control radio and rotator equipment.
+Summary  : Ham radio equipment control libraries
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
 Requires: hamlib-bin = %{version}-%{release}
@@ -32,9 +32,17 @@ BuildRequires : usrbinpython
 Patch1: 0001-Use-vendor_install-for-Perl-bindings.patch
 
 %description
-Hamlib - (C) Frank Singleton 2000 (vk3fcs@ix.netcom.com)
-(C) Stephane Fillod 2000-2011
-(C) The Hamlib Group 2000-2012
+hamlib-1.2.5 aor.c ar5000.c
+2006-10-29
+The previous AR5000 could:
+- get and set frequency.
+- read mode if radio were not set to SAH, SAL or SAM.
+- not set mode. Radio did not accept two commands to be sent at once.
+- not return VFO-name if rig were set to VFO D or VFO E.
+- not set VFO D or VFO E.
+- vfo_op Up and Down works, but radio returns a "?", resulting in "Protocol error".
+- get_info does not work.
+- not read AGC-level.
 
 %package bin
 Summary: bin components for the hamlib package.
@@ -51,6 +59,7 @@ Group: Development
 Requires: hamlib-lib = %{version}-%{release}
 Requires: hamlib-bin = %{version}-%{release}
 Provides: hamlib-devel = %{version}-%{release}
+Requires: hamlib = %{version}-%{release}
 Requires: hamlib = %{version}-%{release}
 
 %description dev
@@ -137,7 +146,8 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1578430917
+export SOURCE_DATE_EPOCH=1582934299
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
@@ -154,7 +164,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1578430917
+export SOURCE_DATE_EPOCH=1582934299
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/hamlib
 cp %{_builddir}/hamlib-3.3/COPYING %{buildroot}/usr/share/package-licenses/hamlib/4cc77b90af91e615a64ae04893fdffa7939db84c
