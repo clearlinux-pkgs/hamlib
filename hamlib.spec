@@ -6,7 +6,7 @@
 #
 Name     : hamlib
 Version  : 3.3
-Release  : 27
+Release  : 28
 URL      : https://sourceforge.net/projects/hamlib/files/hamlib/3.3/hamlib-3.3.tar.gz
 Source0  : https://sourceforge.net/projects/hamlib/files/hamlib/3.3/hamlib-3.3.tar.gz
 Source1  : https://sourceforge.net/projects/hamlib/files/hamlib/3.3/hamlib-3.3.tar.gz.asc
@@ -137,11 +137,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1584401033
+export SOURCE_DATE_EPOCH=1591126344
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 %configure --disable-static --with-perl-binding --with-python-binding
 make  %{?_smp_mflags}
@@ -154,7 +154,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1584401033
+export SOURCE_DATE_EPOCH=1591126344
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/hamlib
 cp %{_builddir}/hamlib-3.3/COPYING %{buildroot}/usr/share/package-licenses/hamlib/4cc77b90af91e615a64ae04893fdffa7939db84c
@@ -225,10 +225,10 @@ cp %{_builddir}/hamlib-3.3/LICENSE %{buildroot}/usr/share/package-licenses/hamli
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.2/x86_64-linux-thread-multi/Hamlib.pm
-/usr/lib/perl5/vendor_perl/5.30.2/x86_64-linux-thread-multi/auto/Hamlib/.packlist
-/usr/lib/perl5/vendor_perl/5.30.2/x86_64-linux-thread-multi/auto/Hamlib/Hamlib.so
-/usr/lib/perl5/vendor_perl/5.30.2/x86_64-linux-thread-multi/perltest.pl
+/usr/lib/perl5/vendor_perl/5.30.3/x86_64-linux-thread-multi/Hamlib.pm
+/usr/lib/perl5/vendor_perl/5.30.3/x86_64-linux-thread-multi/auto/Hamlib/.packlist
+/usr/lib/perl5/vendor_perl/5.30.3/x86_64-linux-thread-multi/auto/Hamlib/Hamlib.so
+/usr/lib/perl5/vendor_perl/5.30.3/x86_64-linux-thread-multi/perltest.pl
 
 %files python
 %defattr(-,root,root,-)
