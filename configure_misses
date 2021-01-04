@@ -25,6 +25,9 @@ Configure miss: readline.h
 Configure miss: history.h usability
 Configure miss: history.h presence
 Configure miss: history.h
+Configure miss: whether to use INDI in rigctl/rotctl... checking for nova library... checking libnova/libnova.h usability
+Configure miss: libnova/libnova.h presence
+Configure miss: libnova/libnova.h
 Configure miss: gd.h usability
 Configure miss: gd.h presence
 Configure miss: gd.h
@@ -32,6 +35,3 @@ Configure miss: whether to build rigmem XML support
 Configure miss: whether to build USRP backend
 Configure miss: Whether to build Tcl bindings
 Configure miss: whether to build lua binding
-Configure miss: rotctl_parse.c:1012:13: warning: format not a string literal and no format arguments [-Wformat-security]
-
-Configure miss: rotctl_parse.c:1012:13: warning: format not a string literal and no format arguments [-Wformat-security]
