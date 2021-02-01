@@ -226,6 +226,15 @@ libhamlib.so.4:aor_set_ts
 libhamlib.so.4:aor_set_vfo
 libhamlib.so.4:aor_vfo_op
 libhamlib.so.4:azimuth_long_path
+libhamlib.so.4:barrett_cleanup
+libhamlib.so.4:barrett_get_freq
+libhamlib.so.4:barrett_get_mode
+libhamlib.so.4:barrett_get_split_vfo
+libhamlib.so.4:barrett_init
+libhamlib.so.4:barrett_set_mode
+libhamlib.so.4:barrett_set_ptt
+libhamlib.so.4:barrett_set_split_freq
+libhamlib.so.4:barrett_set_split_vfo
 libhamlib.so.4:barrett_transaction
 libhamlib.so.4:bcd2Int
 libhamlib.so.4:cm108_close
@@ -384,6 +393,7 @@ libhamlib.so.4:elecraft_get_firmware_revision_level
 libhamlib.so.4:elecraft_open
 libhamlib.so.4:elektor507_ftdi_write_data
 libhamlib.so.4:elektor507_libusb_setup
+libhamlib.so.4:errmsg
 libhamlib.so.4:execRoutine
 libhamlib.so.4:find_ext
 libhamlib.so.4:flex6k_get_ptt
@@ -754,6 +764,7 @@ libhamlib.so.4:initrots4_meade
 libhamlib.so.4:initrots4_prosistel
 libhamlib.so.4:initrots4_rotorez
 libhamlib.so.4:initrots4_sartek
+libhamlib.so.4:initrots4_satel
 libhamlib.so.4:initrots4_spid
 libhamlib.so.4:initrots4_ts7400
 libhamlib.so.4:is_uh_radio_fd
@@ -953,6 +964,7 @@ libhamlib.so.4:newcat_set_ant
 libhamlib.so.4:newcat_set_bank
 libhamlib.so.4:newcat_set_channel
 libhamlib.so.4:newcat_set_cmd
+libhamlib.so.4:newcat_set_cmd_validate
 libhamlib.so.4:newcat_set_conf
 libhamlib.so.4:newcat_set_ctcss_sql
 libhamlib.so.4:newcat_set_ctcss_tone
@@ -1107,6 +1119,7 @@ libhamlib.so.4:rft_transaction
 libhamlib.so.4:rig2icom_mode
 libhamlib.so.4:rig_check_backend
 libhamlib.so.4:rig_check_cache_timeout
+libhamlib.so.4:rig_check_rig_caps
 libhamlib.so.4:rig_cleanup
 libhamlib.so.4:rig_close
 libhamlib.so.4:rig_confparam_lookup
@@ -1124,6 +1137,8 @@ libhamlib.so.4:rig_force_cache_timeout
 libhamlib.so.4:rig_get_ant
 libhamlib.so.4:rig_get_cache_timeout_ms
 libhamlib.so.4:rig_get_caps
+libhamlib.so.4:rig_get_caps_cptr
+libhamlib.so.4:rig_get_caps_int
 libhamlib.so.4:rig_get_chan_all
 libhamlib.so.4:rig_get_chan_all_cb
 libhamlib.so.4:rig_get_channel
@@ -1138,6 +1153,7 @@ libhamlib.so.4:rig_get_ext_level
 libhamlib.so.4:rig_get_ext_parm
 libhamlib.so.4:rig_get_freq
 libhamlib.so.4:rig_get_func
+libhamlib.so.4:rig_get_function_ptr
 libhamlib.so.4:rig_get_info
 libhamlib.so.4:rig_get_level
 libhamlib.so.4:rig_get_mem
@@ -1173,6 +1189,7 @@ libhamlib.so.4:rig_idx2setting
 libhamlib.so.4:rig_init
 libhamlib.so.4:rig_license
 libhamlib.so.4:rig_list_foreach
+libhamlib.so.4:rig_list_foreach_model
 libhamlib.so.4:rig_load_all_backends
 libhamlib.so.4:rig_load_backend
 libhamlib.so.4:rig_lookup_mem_caps
