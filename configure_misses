@@ -1,37 +1,37 @@
-Configure miss: dev/ppbus/ppbconf.hdev/ppbus/ppi.h usability
-Configure miss: dev/ppbus/ppbconf.hdev/ppbus/ppi.h presence
-Configure miss: dev/ppbus/ppbconf.hdev/ppbus/ppi.h
-Configure miss: sys/ioccom.h usability
-Configure miss: sys/ioccom.h presence
-Configure miss: sys/ioccom.h
-Configure miss: ws2tcpip.h usability
-Configure miss: ws2tcpip.h presence
-Configure miss: ws2tcpip.h
-Configure miss: wspiapi.h usability
-Configure miss: wspiapi.h presence
-Configure miss: wspiapi.h
-Configure miss: winioctl.h
-Configure miss: winbase.h
 Configure miss: Sleep
+Configure miss: Whether to build Tcl bindings
+Configure miss: dev/ppbus/ppbconf.hdev/ppbus/ppi.h
+Configure miss: dev/ppbus/ppbconf.hdev/ppbus/ppi.h presence
+Configure miss: dev/ppbus/ppbconf.hdev/ppbus/ppi.h usability
 Configure miss: floor
+Configure miss: gd.h
+Configure miss: gd.h presence
+Configure miss: gd.h usability
+Configure miss: history.h
+Configure miss: history.h presence
+Configure miss: history.h usability
+Configure miss: libnova/libnova.h
+Configure miss: libnova/libnova.h presence
+Configure miss: libusb.h
+Configure miss: libusb.h presence
+Configure miss: libusb.h usability
+Configure miss: readline.h
+Configure miss: readline.h presence
+Configure miss: readline.h usability
 Configure miss: rint
 Configure miss: sqrt
-Configure miss: libusb.h usability
-Configure miss: libusb.h presence
-Configure miss: libusb.h
-Configure miss: readline.h usability
-Configure miss: readline.h presence
-Configure miss: readline.h
-Configure miss: history.h usability
-Configure miss: history.h presence
-Configure miss: history.h
-Configure miss: whether to use INDI in rigctl/rotctl... checking for nova library... checking libnova/libnova.h usability
-Configure miss: libnova/libnova.h presence
-Configure miss: libnova/libnova.h
-Configure miss: gd.h usability
-Configure miss: gd.h presence
-Configure miss: gd.h
-Configure miss: whether to build rigmem XML support
+Configure miss: sys/ioccom.h
+Configure miss: sys/ioccom.h presence
+Configure miss: sys/ioccom.h usability
 Configure miss: whether to build USRP backend
-Configure miss: Whether to build Tcl bindings
 Configure miss: whether to build lua binding
+Configure miss: whether to build rigmem XML support
+Configure miss: whether to use INDI in rigctl/rotctl... checking for nova library... checking libnova/libnova.h usability
+Configure miss: winbase.h
+Configure miss: winioctl.h
+Configure miss: ws2tcpip.h
+Configure miss: ws2tcpip.h presence
+Configure miss: ws2tcpip.h usability
+Configure miss: wspiapi.h
+Configure miss: wspiapi.h presence
+Configure miss: wspiapi.h usability
