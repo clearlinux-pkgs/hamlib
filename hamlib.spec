@@ -6,7 +6,7 @@
 #
 Name     : hamlib
 Version  : 4.2
-Release  : 40
+Release  : 41
 URL      : https://sourceforge.net/projects/hamlib/files/hamlib/4.2/hamlib-4.2.tar.gz
 Source0  : https://sourceforge.net/projects/hamlib/files/hamlib/4.2/hamlib-4.2.tar.gz
 Source1  : https://sourceforge.net/projects/hamlib/files/hamlib/4.2/hamlib-4.2.tar.gz.asc
@@ -127,7 +127,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1621289232
+export SOURCE_DATE_EPOCH=1621640563
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -144,7 +144,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1621289232
+export SOURCE_DATE_EPOCH=1621640563
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/hamlib
 cp %{_builddir}/hamlib-4.2/COPYING %{buildroot}/usr/share/package-licenses/hamlib/4cc77b90af91e615a64ae04893fdffa7939db84c
