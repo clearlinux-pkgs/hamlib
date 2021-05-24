@@ -6,7 +6,7 @@
 #
 Name     : hamlib
 Version  : 4.2
-Release  : 44
+Release  : 45
 URL      : https://sourceforge.net/projects/hamlib/files/hamlib/4.2/hamlib-4.2.tar.gz
 Source0  : https://sourceforge.net/projects/hamlib/files/hamlib/4.2/hamlib-4.2.tar.gz
 Source1  : https://sourceforge.net/projects/hamlib/files/hamlib/4.2/hamlib-4.2.tar.gz.asc
