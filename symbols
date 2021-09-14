@@ -654,6 +654,7 @@ libhamlib.so.4:icom2rig_mode
 libhamlib.so.4:icom_band_changing
 libhamlib.so.4:icom_cleanup
 libhamlib.so.4:icom_decode_event
+libhamlib.so.4:icom_frame_fix_preamble
 libhamlib.so.4:icom_get_ant
 libhamlib.so.4:icom_get_cmd
 libhamlib.so.4:icom_get_conf
@@ -690,10 +691,12 @@ libhamlib.so.4:icom_get_split_vfos
 libhamlib.so.4:icom_get_ts
 libhamlib.so.4:icom_get_usb_echo_off
 libhamlib.so.4:icom_init
+libhamlib.so.4:icom_is_async_frame
 libhamlib.so.4:icom_mW2power
 libhamlib.so.4:icom_mem_get_split_vfo
 libhamlib.so.4:icom_one_transaction
 libhamlib.so.4:icom_power2mW
+libhamlib.so.4:icom_process_async_frame
 libhamlib.so.4:icom_rig_close
 libhamlib.so.4:icom_rig_open
 libhamlib.so.4:icom_scan
@@ -940,9 +943,12 @@ libhamlib.so.4:millis_to_dot10ths
 libhamlib.so.4:modeToHamlib
 libhamlib.so.4:modeToNative
 libhamlib.so.4:morse_code_dot_to_millis
+libhamlib.so.4:multicast_server
 libhamlib.so.4:netrigctl_get_vfo_mode
 libhamlib.so.4:network_close
 libhamlib.so.4:network_flush
+libhamlib.so.4:network_init
+libhamlib.so.4:network_multicast_server
 libhamlib.so.4:network_open
 libhamlib.so.4:newcat_cleanup
 libhamlib.so.4:newcat_close
@@ -1170,6 +1176,7 @@ libhamlib.so.4:rig_check_rig_caps
 libhamlib.so.4:rig_cleanup
 libhamlib.so.4:rig_close
 libhamlib.so.4:rig_confparam_lookup
+libhamlib.so.4:rig_cookie
 libhamlib.so.4:rig_copy_channel
 libhamlib.so.4:rig_copyright
 libhamlib.so.4:rig_debug
@@ -1312,6 +1319,7 @@ libhamlib.so.4:rig_set_ptt_callback
 libhamlib.so.4:rig_set_rit
 libhamlib.so.4:rig_set_rptr_offs
 libhamlib.so.4:rig_set_rptr_shift
+libhamlib.so.4:rig_set_spectrum_callback
 libhamlib.so.4:rig_set_split_freq
 libhamlib.so.4:rig_set_split_freq_mode
 libhamlib.so.4:rig_set_split_mode
@@ -1333,9 +1341,13 @@ libhamlib.so.4:rig_sprintf_mode
 libhamlib.so.4:rig_sprintf_parm
 libhamlib.so.4:rig_sprintf_parm_gran
 libhamlib.so.4:rig_sprintf_scan
+libhamlib.so.4:rig_sprintf_spectrum_avg_modes
+libhamlib.so.4:rig_sprintf_spectrum_modes
+libhamlib.so.4:rig_sprintf_spectrum_spans
 libhamlib.so.4:rig_sprintf_vfo
 libhamlib.so.4:rig_sprintf_vfop
 libhamlib.so.4:rig_stop_morse
+libhamlib.so.4:rig_stragclevel
 libhamlib.so.4:rig_strfunc
 libhamlib.so.4:rig_strlevel
 libhamlib.so.4:rig_strmtype
@@ -1344,6 +1356,7 @@ libhamlib.so.4:rig_strptrshift
 libhamlib.so.4:rig_strrmode
 libhamlib.so.4:rig_strrmodes
 libhamlib.so.4:rig_strscan
+libhamlib.so.4:rig_strspectrummode
 libhamlib.so.4:rig_strstatus
 libhamlib.so.4:rig_strvfo
 libhamlib.so.4:rig_strvfop
@@ -1457,6 +1470,7 @@ libhamlib.so.4:skanti_set_split_freq
 libhamlib.so.4:skanti_vfo_op
 libhamlib.so.4:sprintf_freq
 libhamlib.so.4:sprintf_level_ext
+libhamlib.so.4:sync_callback
 libhamlib.so.4:tapr_set_freq
 libhamlib.so.4:tapr_set_mode
 libhamlib.so.4:tentec2_get_freq
