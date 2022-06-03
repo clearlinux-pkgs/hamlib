@@ -6,7 +6,7 @@
 #
 Name     : hamlib
 Version  : 4.4
-Release  : 54
+Release  : 55
 URL      : https://sourceforge.net/projects/hamlib/files/hamlib/4.4/hamlib-4.4.tar.gz
 Source0  : https://sourceforge.net/projects/hamlib/files/hamlib/4.4/hamlib-4.4.tar.gz
 Source1  : https://sourceforge.net/projects/hamlib/files/hamlib/4.4/hamlib-4.4.tar.gz.asc
@@ -127,7 +127,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1642192781
+export SOURCE_DATE_EPOCH=1654287620
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -144,7 +144,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1642192781
+export SOURCE_DATE_EPOCH=1654287620
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/hamlib
 cp %{_builddir}/hamlib-4.4/COPYING %{buildroot}/usr/share/package-licenses/hamlib/4cc77b90af91e615a64ae04893fdffa7939db84c
@@ -221,10 +221,7 @@ cp %{_builddir}/hamlib-4.4/LICENSE %{buildroot}/usr/share/package-licenses/hamli
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/Hamlib.pm
-/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/auto/Hamlib/.packlist
-/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/auto/Hamlib/Hamlib.so
-/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/perltest.pl
+/usr/lib/perl5/*
 
 %files python
 %defattr(-,root,root,-)
