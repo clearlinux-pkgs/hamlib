@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xFB2C5130D55A8819 (n0nb@n0nb.us)
 #
 Name     : hamlib
-Version  : 4.4
-Release  : 56
-URL      : https://sourceforge.net/projects/hamlib/files/hamlib/4.4/hamlib-4.4.tar.gz
-Source0  : https://sourceforge.net/projects/hamlib/files/hamlib/4.4/hamlib-4.4.tar.gz
-Source1  : https://sourceforge.net/projects/hamlib/files/hamlib/4.4/hamlib-4.4.tar.gz.asc
+Version  : 4.5
+Release  : 57
+URL      : https://sourceforge.net/projects/hamlib/files/hamlib/4.5/hamlib-4.5.tar.gz
+Source0  : https://sourceforge.net/projects/hamlib/files/hamlib/4.5/hamlib-4.5.tar.gz
+Source1  : https://sourceforge.net/projects/hamlib/files/hamlib/4.5/hamlib-4.5.tar.gz.asc
 Summary  : Library to control radio and rotator equipment.
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -24,6 +24,7 @@ BuildRequires : buildreq-cpan
 BuildRequires : ncurses-dev
 BuildRequires : pkgconfig(libusb-1.0)
 BuildRequires : pkgconfig(libxml-2.0)
+BuildRequires : pkgconfig(tcl)
 BuildRequires : python3-dev
 BuildRequires : readline-dev
 BuildRequires : swig
@@ -31,9 +32,7 @@ BuildRequires : usrbinpython
 Patch1: 0001-Use-vendor_install-for-Perl-bindings.patch
 
 %description
-Hamlib - (C) Frank Singleton 2000 (vk3fcs@ix.netcom.com)
-(C) Stephane Fillod 2000-2011
-(C) The Hamlib Group 2000-2012
+
 
 %package bin
 Summary: bin components for the hamlib package.
@@ -118,8 +117,8 @@ python3 components for the hamlib package.
 
 
 %prep
-%setup -q -n hamlib-4.4
-cd %{_builddir}/hamlib-4.4
+%setup -q -n hamlib-4.5
+cd %{_builddir}/hamlib-4.5
 %patch1 -p1
 
 %build
@@ -127,7 +126,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1654287620
+export SOURCE_DATE_EPOCH=1667346579
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -144,12 +143,11 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1654287620
+export SOURCE_DATE_EPOCH=1667346579
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/hamlib
-cp %{_builddir}/hamlib-4.4/COPYING %{buildroot}/usr/share/package-licenses/hamlib/4cc77b90af91e615a64ae04893fdffa7939db84c
-cp %{_builddir}/hamlib-4.4/COPYING.LIB %{buildroot}/usr/share/package-licenses/hamlib/01a6b4bf79aca9b556822601186afab86e8c4fbf
-cp %{_builddir}/hamlib-4.4/LICENSE %{buildroot}/usr/share/package-licenses/hamlib/ce398a28bbe3ecfc23e5d33a446edd994121507b
+cp %{_builddir}/hamlib-%{version}/COPYING %{buildroot}/usr/share/package-licenses/hamlib/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/hamlib-%{version}/COPYING.LIB %{buildroot}/usr/share/package-licenses/hamlib/01a6b4bf79aca9b556822601186afab86e8c4fbf
 %make_install
 
 %files
@@ -174,6 +172,7 @@ cp %{_builddir}/hamlib-4.4/LICENSE %{buildroot}/usr/share/package-licenses/hamli
 /usr/include/hamlib/ampclass.h
 /usr/include/hamlib/amplifier.h
 /usr/include/hamlib/amplist.h
+/usr/include/hamlib/config.h
 /usr/include/hamlib/rig.h
 /usr/include/hamlib/rig_dll.h
 /usr/include/hamlib/rigclass.h
@@ -193,15 +192,14 @@ cp %{_builddir}/hamlib-4.4/LICENSE %{buildroot}/usr/share/package-licenses/hamli
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libhamlib++.so.4
-/usr/lib64/libhamlib++.so.4.0.4
+/usr/lib64/libhamlib++.so.4.0.5
 /usr/lib64/libhamlib.so.4
-/usr/lib64/libhamlib.so.4.0.4
+/usr/lib64/libhamlib.so.4.0.5
 
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/hamlib/01a6b4bf79aca9b556822601186afab86e8c4fbf
 /usr/share/package-licenses/hamlib/4cc77b90af91e615a64ae04893fdffa7939db84c
-/usr/share/package-licenses/hamlib/ce398a28bbe3ecfc23e5d33a446edd994121507b
 
 %files man
 %defattr(0644,root,root,0755)
