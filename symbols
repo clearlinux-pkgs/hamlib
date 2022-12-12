@@ -1036,6 +1036,7 @@ libhamlib.so.4:multicast_publisher
 libhamlib.so.4:netrigctl_get_lock_mode
 libhamlib.so.4:netrigctl_get_vfo_mode
 libhamlib.so.4:netrigctl_password
+libhamlib.so.4:netrigctl_send_raw
 libhamlib.so.4:netrigctl_set_lock_mode
 libhamlib.so.4:network_close
 libhamlib.so.4:network_flush
@@ -1467,6 +1468,7 @@ libhamlib.so.4:rig_settings_get_path
 libhamlib.so.4:rig_settings_load
 libhamlib.so.4:rig_settings_load_all
 libhamlib.so.4:rig_settings_save
+libhamlib.so.4:rig_sprintf_agc_levels
 libhamlib.so.4:rig_sprintf_ant
 libhamlib.so.4:rig_sprintf_func
 libhamlib.so.4:rig_sprintf_level
