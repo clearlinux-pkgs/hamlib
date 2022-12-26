@@ -1304,6 +1304,7 @@ libhamlib.so.4:rig_flush
 libhamlib.so.4:rig_force_cache_timeout
 libhamlib.so.4:rig_get_ant
 libhamlib.so.4:rig_get_cache
+libhamlib.so.4:rig_get_cache_freq
 libhamlib.so.4:rig_get_cache_timeout_ms
 libhamlib.so.4:rig_get_caps
 libhamlib.so.4:rig_get_caps_cptr
