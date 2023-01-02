@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xFB2C5130D55A8819 (n0nb@n0nb.us)
 #
 Name     : hamlib
-Version  : 4.5.2
-Release  : 59
-URL      : https://sourceforge.net/projects/hamlib/files/hamlib/4.5.2/hamlib-4.5.2.tar.gz
-Source0  : https://sourceforge.net/projects/hamlib/files/hamlib/4.5.2/hamlib-4.5.2.tar.gz
-Source1  : https://sourceforge.net/projects/hamlib/files/hamlib/4.5.2/hamlib-4.5.2.tar.gz.asc
+Version  : 4.5.3
+Release  : 60
+URL      : https://sourceforge.net/projects/hamlib/files/hamlib/4.5.3/hamlib-4.5.3.tar.gz
+Source0  : https://sourceforge.net/projects/hamlib/files/hamlib/4.5.3/hamlib-4.5.3.tar.gz
+Source1  : https://sourceforge.net/projects/hamlib/files/hamlib/4.5.3/hamlib-4.5.3.tar.gz.asc
 Summary  : Library to control radio and rotator equipment.
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -29,6 +29,9 @@ BuildRequires : python3-dev
 BuildRequires : readline-dev
 BuildRequires : swig
 BuildRequires : usrbinpython
+# Suppress stripping binaries
+%define __strip /bin/true
+%define debug_package %{nil}
 Patch1: 0001-Use-vendor_install-for-Perl-bindings.patch
 
 %description
@@ -117,8 +120,8 @@ python3 components for the hamlib package.
 
 
 %prep
-%setup -q -n hamlib-4.5.2
-cd %{_builddir}/hamlib-4.5.2
+%setup -q -n hamlib-4.5.3
+cd %{_builddir}/hamlib-4.5.3
 %patch1 -p1
 
 %build
@@ -126,12 +129,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1672076513
+export SOURCE_DATE_EPOCH=1672682101
 export GCC_IGNORE_WERROR=1
-export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$FFLAGS -fno-lto "
-export FFLAGS="$FFLAGS -fno-lto "
-export CXXFLAGS="$CXXFLAGS -fno-lto "
+export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CXXFLAGS="$CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
 %configure --disable-static --with-perl-binding --with-python-binding
 make  %{?_smp_mflags}
 
@@ -143,11 +146,11 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1672076513
+export SOURCE_DATE_EPOCH=1672682101
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/hamlib
-cp %{_builddir}/hamlib-%{version}/COPYING %{buildroot}/usr/share/package-licenses/hamlib/4cc77b90af91e615a64ae04893fdffa7939db84c
-cp %{_builddir}/hamlib-%{version}/COPYING.LIB %{buildroot}/usr/share/package-licenses/hamlib/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/hamlib-%{version}/COPYING %{buildroot}/usr/share/package-licenses/hamlib/4cc77b90af91e615a64ae04893fdffa7939db84c || :
+cp %{_builddir}/hamlib-%{version}/COPYING.LIB %{buildroot}/usr/share/package-licenses/hamlib/01a6b4bf79aca9b556822601186afab86e8c4fbf || :
 %make_install
 
 %files
