@@ -821,6 +821,8 @@ libhamlib.so.4:icom_transaction
 libhamlib.so.4:icom_vfo_op
 libhamlib.so.4:icr30_set_mode
 libhamlib.so.4:icr8500_set_func
+libhamlib.so.4:id5100_get_mode
+libhamlib.so.4:id5100_set_mode
 libhamlib.so.4:initamps4_dummy
 libhamlib.so.4:initamps4_gemini
 libhamlib.so.4:initamps4_kpa1500
@@ -920,6 +922,7 @@ libhamlib.so.4:k3_get_mode
 libhamlib.so.4:k3_get_nb_level
 libhamlib.so.4:k3_get_split_mode
 libhamlib.so.4:k3_get_vfo
+libhamlib.so.4:k3_power2mW
 libhamlib.so.4:k3_set_ext_level
 libhamlib.so.4:k3_set_freq
 libhamlib.so.4:k3_set_func
@@ -1364,6 +1367,7 @@ libhamlib.so.4:rig_has_set_parm
 libhamlib.so.4:rig_has_vfo_op
 libhamlib.so.4:rig_idx2setting
 libhamlib.so.4:rig_init
+libhamlib.so.4:rig_is_model
 libhamlib.so.4:rig_levelagcstr
 libhamlib.so.4:rig_levelagcvalue
 libhamlib.so.4:rig_license
