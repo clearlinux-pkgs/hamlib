@@ -1228,6 +1228,7 @@ libhamlib.so.4:probeallrigs4_kenwood
 libhamlib.so.4:probeallrigs4_lowe
 libhamlib.so.4:probeallrigs4_uniden
 libhamlib.so.4:probeallrigs4_yaesu
+libhamlib.so.4:qdx_set_ptt
 libhamlib.so.4:qrb
 libhamlib.so.4:ra37xx_cleanup
 libhamlib.so.4:ra37xx_close
@@ -1708,6 +1709,9 @@ libhamlib.so.4:to_bcd
 libhamlib.so.4:to_bcd_be
 libhamlib.so.4:to_hex
 libhamlib.so.4:trimwhitespace
+libhamlib.so.4:ts2000_get_channel
+libhamlib.so.4:ts2000_init
+libhamlib.so.4:ts2000_set_channel
 libhamlib.so.4:ts450_open
 libhamlib.so.4:ts480_init
 libhamlib.so.4:ts570_get_func
