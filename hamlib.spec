@@ -7,7 +7,7 @@
 #
 Name     : hamlib
 Version  : 4.5.5
-Release  : 63
+Release  : 64
 URL      : https://sourceforge.net/projects/hamlib/files/hamlib/4.5.5/hamlib-4.5.5.tar.gz
 Source0  : https://sourceforge.net/projects/hamlib/files/hamlib/4.5.5/hamlib-4.5.5.tar.gz
 Source1  : https://sourceforge.net/projects/hamlib/files/hamlib/4.5.5/hamlib-4.5.5.tar.gz.asc
@@ -123,19 +123,19 @@ python3 components for the hamlib package.
 %prep
 %setup -q -n hamlib-4.5.5
 cd %{_builddir}/hamlib-4.5.5
-%patch1 -p1
+%patch -P 1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1680791703
+export SOURCE_DATE_EPOCH=1690943773
 export GCC_IGNORE_WERROR=1
-export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
-export CXXFLAGS="$CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export CXXFLAGS="$CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 %configure --disable-static --with-perl-binding --with-python-binding
 make  %{?_smp_mflags}
 
@@ -147,7 +147,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1680791703
+export SOURCE_DATE_EPOCH=1690943773
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/hamlib
 cp %{_builddir}/hamlib-%{version}/COPYING %{buildroot}/usr/share/package-licenses/hamlib/4cc77b90af91e615a64ae04893fdffa7939db84c || :
@@ -191,7 +191,7 @@ cp %{_builddir}/hamlib-%{version}/COPYING.LIB %{buildroot}/usr/share/package-lic
 
 %files doc
 %defattr(0644,root,root,0755)
-%doc /usr/share/doc/hamlib/*
+/usr/share/doc/hamlib/*
 
 %files lib
 %defattr(-,root,root,-)
