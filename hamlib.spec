@@ -9,7 +9,7 @@
 #
 Name     : hamlib
 Version  : 4.5.5
-Release  : 70
+Release  : 71
 URL      : https://sourceforge.net/projects/hamlib/files/hamlib/4.5.5/hamlib-4.5.5.tar.gz
 Source0  : https://sourceforge.net/projects/hamlib/files/hamlib/4.5.5/hamlib-4.5.5.tar.gz
 Source1  : https://sourceforge.net/projects/hamlib/files/hamlib/4.5.5/hamlib-4.5.5.tar.gz.asc
