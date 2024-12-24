@@ -16,6 +16,8 @@ Configure miss: history.h
 Configure miss: history.h
 Configure miss: libusb.h
 Configure miss: libusb.h
+Configure miss: main in -lwinmm
+Configure miss: main in -lwinmm
 Configure miss: readline.h
 Configure miss: readline.h
 Configure miss: rint
@@ -24,16 +26,18 @@ Configure miss: sqrt
 Configure miss: sqrt
 Configure miss: sys/ioccom.h
 Configure miss: sys/ioccom.h
+Configure miss: timeBeginPeriod
+Configure miss: timeBeginPeriod
 Configure miss: whether to build USRP backend
 Configure miss: whether to build USRP backend
 Configure miss: whether to build lua binding
 Configure miss: whether to build lua binding
 Configure miss: whether to build rigmem XML support
 Configure miss: whether to build rigmem XML support
-Configure miss: whether to use INDI in rigctl/rotctl... checking for nova library... checking for libnova/libnova.h
-Configure miss: whether to use INDI in rigctl/rotctl... checking for nova library... checking for libnova/libnova.h
 Configure miss: winbase.h
 Configure miss: winbase.h
+Configure miss: windres
+Configure miss: windres
 Configure miss: winioctl.h
 Configure miss: winioctl.h
 Configure miss: ws2tcpip.h
