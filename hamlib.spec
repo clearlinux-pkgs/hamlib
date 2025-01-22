@@ -9,7 +9,7 @@
 #
 Name     : hamlib
 Version  : 4.6.1
-Release  : 74
+Release  : 75
 URL      : https://sourceforge.net/projects/hamlib/files/hamlib/4.6.1/hamlib-4.6.1.tar.gz
 Source0  : https://sourceforge.net/projects/hamlib/files/hamlib/4.6.1/hamlib-4.6.1.tar.gz
 Source1  : https://sourceforge.net/projects/hamlib/files/hamlib/4.6.1/hamlib-4.6.1.tar.gz.asc
