@@ -507,6 +507,7 @@ libhamlib.so.4:format8k_mode
 libhamlib.so.4:frame_message
 libhamlib.so.4:from_bcd
 libhamlib.so.4:from_bcd_be
+libhamlib.so.4:from_be
 libhamlib.so.4:frontamp_set_conf
 libhamlib.so.4:frontrot_get_conf
 libhamlib.so.4:frontrot_set_conf
@@ -573,6 +574,7 @@ libhamlib.so.4:gpio_dcd_get
 libhamlib.so.4:gpio_open
 libhamlib.so.4:gpio_ptt_get
 libhamlib.so.4:gpio_ptt_set
+libhamlib.so.4:guohe2rmode
 libhamlib.so.4:hiqsdr_get_conf2
 libhamlib.so.4:hl_usleep
 libhamlib.so.4:hzToDDS
@@ -1565,6 +1567,7 @@ libhamlib.so.4:rig_wait_morse
 libhamlib.so.4:rigerror
 libhamlib.so.4:rigerror2
 libhamlib.so.4:rmode2elad
+libhamlib.so.4:rmode2guohe
 libhamlib.so.4:rmode2kenwood
 libhamlib.so.4:rot_check_backend
 libhamlib.so.4:rot_cleanup
@@ -1767,6 +1770,7 @@ libhamlib.so.4:tmd710_scan_mu
 libhamlib.so.4:tmd710_set_memory_name
 libhamlib.so.4:to_bcd
 libhamlib.so.4:to_bcd_be
+libhamlib.so.4:to_be
 libhamlib.so.4:to_hex
 libhamlib.so.4:trimwhitespace
 libhamlib.so.4:ts2000_get_channel
