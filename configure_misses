@@ -10,8 +10,6 @@ Configure miss: g++ option to enable C++11 features
 Configure miss: g++ option to enable C++11 features
 Configure miss: gcc options needed to detect all undeclared functions
 Configure miss: gcc options needed to detect all undeclared functions
-Configure miss: gd.h
-Configure miss: gd.h
 Configure miss: history.h
 Configure miss: history.h
 Configure miss: libusb.h
@@ -34,6 +32,8 @@ Configure miss: whether to build lua binding
 Configure miss: whether to build lua binding
 Configure miss: whether to build rigmem XML support
 Configure miss: whether to build rigmem XML support
+Configure miss: whether to use INDI in rigctl/rotctl... checking whether to build HTML rig feature matrix... checking for gd.h
+Configure miss: whether to use INDI in rigctl/rotctl... checking whether to build HTML rig feature matrix... checking for gd.h
 Configure miss: winbase.h
 Configure miss: winbase.h
 Configure miss: windres
